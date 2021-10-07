@@ -11,6 +11,7 @@ import (
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"strconv"
 )
 
 type AuthApi struct {
@@ -112,12 +113,18 @@ func (authApi *AuthApi) GetBaseMenus(c *gin.Context) {
 // @Tags Auth
 // @Summary 获取用户权限菜单id组
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"ok"}"
-// @Router /auth/menuids [get]
+// @Router /auth/menuids/:id [get]
 func (authApi *AuthApi) GetBaseMenusIds(c *gin.Context) {
 	appRes := app.Gin{C: c}
 	// 解析token内的用户参数
-	info, err := utils.ParseTokenRequest(c)
-	ids, err := authService.GetSystemPermissionsMenuIds(info.RoleId)
+	id := c.Param("id")
+	// 参数转换
+	uid, err := strconv.Atoi(id)
+	if err != nil {
+		appRes.Response(http.StatusOK, enum.PARAMS_ERROR, nil)
+		return
+	}
+	ids, err := authService.GetSystemPermissionsMenuIds(uid)
 	if err != nil {
 		appRes.Response(http.StatusOK, enum.INVALID_TOKEN_PARAMS_ERROR, nil)
 		return

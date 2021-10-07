@@ -1,9 +1,9 @@
 package model
 
-import "gorm.io/gorm"
+import "fast-admin-service/global"
 
 type SysUser struct {
-	gorm.Model
+	global.Model
 	UserName   string    `json:"userName" gorm:"column:user_name;comment:用户名"`
 	PassWord   string    `json:"passWord" gorm:"column:pass_word;comment:账户密码"`
 	UserAvatar string    `json:"userAvatar" gorm:"column:user_avatar;comment:用户头像"`

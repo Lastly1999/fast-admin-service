@@ -12,6 +12,6 @@ func InitAuthRouter(r *gin.RouterGroup) {
 		// 获取用户基础权限菜单
 		authRouter.GET("menu", authApi.GetBaseMenus)
 		// 获取用户权限菜单id组
-		authRouter.GET("menuids", authApi.GetBaseMenusIds)
+		authRouter.GET("menuids/:id", authApi.GetBaseMenusIds)
 	}
 }

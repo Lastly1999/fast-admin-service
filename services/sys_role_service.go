@@ -13,7 +13,7 @@ type IRoleService interface {
 	DeleteRoleById(id int) (err error)
 	PutRole(role *model.SysRole) (err error)
 	UpdateRole(role *model.SysRole) (err error)
-	UpdateRoleMenu(roleId int, menuIds []int) (err error)
+	UpdateRoleMenu(roleId int, menuIds []uint) (err error)
 }
 
 // DeleteRoleById 删除角色
@@ -42,7 +42,7 @@ func (roleService *RoleService) PutRole(role *model.SysRole) (err error) {
 
 // UpdateRole 更新角色
 func (roleService *RoleService) UpdateRole(role *model.SysRole) (err error) {
-	if err = global.GLOBAL_DB.Model(&model.SysRole{}).Updates(&role).Error; err != nil {
+	if err = global.GLOBAL_DB.Model(&model.SysRole{}).Where("role_id = ?", role.RoleId).Updates(&role).Error; err != nil {
 		return err
 	}
 	return nil

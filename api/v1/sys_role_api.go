@@ -81,7 +81,7 @@ func (roleApi *RoleApi) PutRole(c *gin.Context) {
 // @Tags Role
 // @Summary 修改角色信息
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"ok"}"
-// @Router /role/role [get]
+// @Router /role/role [patch]
 func (roleApi *RoleApi) UpdateRoleById(c *gin.Context) {
 	appRes := app.Gin{C: c}
 	// 请求的结构体
@@ -94,6 +94,7 @@ func (roleApi *RoleApi) UpdateRoleById(c *gin.Context) {
 	role := &model.SysRole{
 		RoleId:   roleParams.RoleId,
 		RoleName: roleParams.RoleName,
+		Describe: roleParams.Describe,
 	}
 	err = roleService.UpdateRole(role)
 	if err != nil {
