@@ -1,5 +1,5 @@
 # fast-admin-service
 
-### go run main.go
+### running server --> go run main.go
 
-### go build
+### build server --> go build
