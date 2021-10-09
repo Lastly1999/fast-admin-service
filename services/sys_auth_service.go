@@ -5,7 +5,6 @@ import (
 	"fast-admin-service/model"
 	"fast-admin-service/pkg/captcha"
 	"fast-admin-service/pkg/redis"
-	"fmt"
 	"time"
 )
 
@@ -25,7 +24,6 @@ func (authService *AuthService) CheckAuth(user *model.SysUser) (userRecord *mode
 	if err != nil {
 		return userRecord, err
 	}
-	fmt.Println(userRecord)
 	return userRecord, nil
 }
 

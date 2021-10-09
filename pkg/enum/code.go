@@ -9,6 +9,7 @@ const (
 	AUTH_ERROR                 = 301
 	CODE_ERROR                 = 302
 	INVALID_TOKEN_PARAMS_ERROR = 303
+	AUTHORITY_ERROR            = 304
 	INVALID_PARAMS             = 400
 	ERROR_EXIST_TAG            = 10001
 	ERROR_EXIST_TAG_FAIL       = 10002

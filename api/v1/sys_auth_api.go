@@ -55,6 +55,10 @@ func (authApi *AuthApi) LoginAction(c *gin.Context) {
 			appRes.Response(http.StatusOK, enum.AUTH_ERROR, nil)
 			return
 		}
+		if len(auth.Role) == 0 {
+			appRes.Response(http.StatusOK, enum.AUTHORITY_ERROR, nil)
+			return
+		}
 		// 成功 派发token 用户的权限 默认选择第一个作为默认角色
 		token, err := utils.GenerateToken(auth.UserName, auth.PassWord, int(auth.ID), int(auth.Role[0].RoleId))
 		if err != nil {
