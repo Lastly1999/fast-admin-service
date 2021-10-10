@@ -52,6 +52,7 @@ func (userApi *UserApi) CreateSystemUser(c *gin.Context) {
 		UserName: sysUserParams.UserName,
 		PassWord: sysUserParams.PassWord,
 		NikeName: sysUserParams.NikeName,
+		RoleId:   sysUserParams.RoleId,
 	}
 	err = userService.CreateUser(user)
 	if err != nil {
@@ -81,6 +82,7 @@ func (userApi *UserApi) UpdateSystemUserById(c *gin.Context) {
 		UserName: sysUserParams.UserName,
 		PassWord: sysUserParams.PassWord,
 		NikeName: sysUserParams.NikeName,
+		RoleId:   sysUserParams.RoleId,
 	}
 	err = userService.UpdateUserById(user)
 	if err != nil {
@@ -107,6 +109,54 @@ func (userApi *UserApi) DeleteSystemUserById(c *gin.Context) {
 	err = userService.DeleteUserById(id)
 	if err != nil {
 		appRes.Response(http.StatusOK, enum.ERROR, nil)
+		return
+	}
+	appRes.Response(http.StatusOK, enum.SUCCESS, nil)
+}
+
+// GetAListOfUserRoles
+// @Tags User
+// @Summary 获取系统用户角色列表
+// @Success 200 {string} string "{"success":true,"data":{},"msg":"ok"}"
+// @Router /user/role [get]
+func (userApi *UserApi) GetAListOfUserRoles(c *gin.Context) {
+	appRes := app.Gin{C: c}
+	param := c.Param("id")
+	userId, err := strconv.Atoi(param)
+	if err != nil {
+		appRes.Response(http.StatusOK, enum.PARAMS_ERROR, nil)
+		return
+	}
+	user := &model.SysUser{
+		Model: global.Model{
+			ID: uint(userId),
+		},
+	}
+	roles, err := userService.GetSystemUserRoles(user)
+	if err != nil {
+		appRes.Response(http.StatusOK, enum.ERROR, nil)
+		return
+	}
+	appRes.Response(http.StatusOK, enum.SUCCESS, gin.H{
+		"roles": roles,
+	})
+}
+
+// NewUserAssociationRole
+// @Tags User
+// @Summary 新增用户关联角色
+// @Success 200 {string} string "{"success":true,"data":{},"msg":"ok"}"
+// @Router /user/role [patch]
+func (userApi *UserApi) NewUserAssociationRole(c *gin.Context) {
+	appRes := app.Gin{C: c}
+	userRoleParams := request.SystemUserRoleParams{}
+	err := c.ShouldBindJSON(&userRoleParams)
+	if err != nil {
+		appRes.Response(http.StatusOK, enum.BIN_JSON_ERROR, nil)
+		return
+	}
+	err = userService.NewUserAssociationRole(&userRoleParams)
+	if err != nil {
 		return
 	}
 	appRes.Response(http.StatusOK, enum.SUCCESS, nil)

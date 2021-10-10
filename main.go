@@ -11,10 +11,9 @@ import (
 
 func init() {
 	log.SetLogs(zap.DebugLevel, log.LOGFORMAT_CONSOLE, "./log/gin-example.log")
-	setting.Setup()     // 初始化配置文件
-	redis.Setup()       // redis初始化
-	gorm.Setup()        // 初始化gorm
-	gorm.InitDataBase() // 数据库迁移
+	setting.Setup() // 初始化配置文件
+	redis.Setup()   // redis初始化
+	gorm.Setup()    // 初始化gorm
 }
 
 func main() {

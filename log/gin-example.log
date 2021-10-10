@@ -523,3 +523,151 @@
 2021-10-09T16:51:58.681+0800	INFO	gorm/gorm.go:35	database content success...
 2021-10-09T16:53:04.319+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
 2021-10-09T16:53:04.588+0800	INFO	gorm/gorm.go:35	database content success...
+2021-10-09T17:07:16.915+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-09T17:07:17.206+0800	INFO	gorm/gorm.go:35	database content success...
+2021-10-10T10:07:35.272+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T10:07:35.663+0800	INFO	gorm/gorm.go:35	database content success...
+2021-10-10T11:32:23.661+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T11:32:23.934+0800	INFO	gorm/gorm.go:35	database content success...
+2021-10-10T11:32:30.402+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T11:32:30.680+0800	INFO	gorm/gorm.go:35	database content success...
+2021-10-10T11:35:39.676+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T11:35:39.942+0800	INFO	gorm/gorm.go:35	database content success...
+2021-10-10T11:36:42.447+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T11:36:42.738+0800	INFO	gorm/gorm.go:35	database content success...
+2021-10-10T11:37:43.180+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T11:37:43.431+0800	INFO	gorm/gorm.go:35	database content success...
+2021-10-10T11:41:33.169+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T11:41:33.426+0800	INFO	gorm/gorm.go:35	database content success...
+2021-10-10T11:41:33.430+0800	ERROR	gorm/gorm.go:48	automiGrate error...
+2021-10-10T11:41:49.342+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T11:41:49.624+0800	INFO	gorm/gorm.go:35	database content success...
+2021-10-10T11:43:49.839+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T11:43:50.113+0800	INFO	gorm/gorm.go:35	database content success...
+2021-10-10T11:53:33.797+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T11:53:34.071+0800	INFO	gorm/gorm.go:35	database content success...
+2021-10-10T11:55:02.894+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T11:55:03.195+0800	INFO	gorm/gorm.go:35	database content success...
+2021-10-10T11:55:19.838+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T11:55:20.127+0800	INFO	gorm/gorm.go:35	database content success...
+2021-10-10T11:57:58.361+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T11:57:58.649+0800	INFO	gorm/gorm.go:35	database content success...
+2021-10-10T12:00:23.325+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T12:00:23.608+0800	INFO	gorm/gorm.go:35	database content success...
+2021-10-10T14:25:11.899+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T14:25:33.069+0800	ERROR	gorm/gorm.go:32	database content error..
+2021-10-10T14:26:36.159+0800	ERROR	gorm/gorm.go:48	automiGrate error...
+2021-10-10T14:40:45.274+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T14:41:06.457+0800	INFO	gorm/gorm.go:41	database content success...
+2021-10-10T14:41:06.460+0800	ERROR	gorm/gorm.go:54	automiGrate error...
+2021-10-10T14:41:56.791+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T14:42:17.981+0800	INFO	gorm/gorm.go:41	database content success...
+2021-10-10T14:43:08.749+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T14:43:29.936+0800	ERROR	gorm/gorm.go:32	database content error..
+2021-10-10T14:46:26.411+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T14:46:26.745+0800	ERROR	gorm/gorm.go:32	The database connection failed may be due to a timeout
+2021-10-10T14:46:40.425+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T14:46:40.858+0800	INFO	gorm/gorm.go:41	Database connection is successful
+2021-10-10T15:12:37.939+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T15:12:38.442+0800	INFO	gorm/gorm.go:41	Database connection is successful
+2021-10-10T15:15:11.941+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T15:15:12.403+0800	INFO	gorm/gorm.go:43	Database connection is successful
+2021-10-10T15:25:55.709+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T15:25:56.162+0800	INFO	gorm/gorm.go:43	Database connection is successful
+2021-10-10T15:26:01.236+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T15:26:01.675+0800	INFO	gorm/gorm.go:43	Database connection is successful
+2021-10-10T15:26:06.441+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T15:26:06.925+0800	INFO	gorm/gorm.go:43	Database connection is successful
+2021-10-10T15:26:45.072+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T15:26:45.552+0800	INFO	gorm/gorm.go:43	Database connection is successful
+2021-10-10T15:27:11.223+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T15:27:11.713+0800	INFO	gorm/gorm.go:43	Database connection is successful
+2021-10-10T15:39:41.640+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T15:39:42.146+0800	INFO	gorm/gorm.go:43	Database connection is successful
+2021-10-10T15:40:38.325+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T15:40:41.161+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T15:41:42.729+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T15:41:46.347+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T15:43:14.557+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T15:43:18.140+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T15:56:22.790+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T15:56:25.949+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T16:04:25.339+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T16:04:28.682+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T16:09:05.876+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T16:09:09.042+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T16:16:38.394+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T16:16:41.303+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T16:24:08.884+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T16:24:12.223+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T16:25:24.806+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T16:25:27.842+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T16:26:03.475+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T16:26:06.892+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T16:38:09.303+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T16:38:12.325+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T16:38:55.306+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T16:38:58.687+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T16:40:38.796+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T16:40:41.983+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T16:42:19.976+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T16:42:23.329+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T16:42:51.816+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T16:42:55.027+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T16:43:18.530+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T16:43:21.879+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T16:44:50.300+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T16:44:53.815+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T16:45:14.602+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T16:45:18.235+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:06:56.411+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:06:59.618+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:09:34.864+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:09:38.360+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:10:10.049+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:10:13.155+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:13:18.646+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:13:21.852+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:16:31.066+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:16:34.389+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:29:50.885+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:29:54.222+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:31:25.616+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:31:28.809+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:34:26.850+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:34:30.179+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:36:16.929+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:36:20.001+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:37:57.133+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:38:00.306+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:38:48.559+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:38:52.030+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:39:12.575+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:39:15.752+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:40:11.819+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:40:15.064+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:40:54.239+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:40:57.404+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:43:32.977+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:43:35.872+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:46:48.065+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:46:51.050+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:47:19.093+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:47:22.429+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:48:37.707+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:48:40.893+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:56:46.787+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:56:50.085+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:57:20.686+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:57:26.605+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:57:29.764+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:58:11.120+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:58:13.963+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:58:32.715+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:58:35.628+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:59:10.404+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:59:13.446+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:59:31.712+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T17:59:34.953+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-10T17:59:57.976+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-10T18:00:01.302+0800	INFO	gorm/gorm.go:45	Database connection is successful

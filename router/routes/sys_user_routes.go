@@ -17,5 +17,9 @@ func InitUserRouter(r *gin.RouterGroup) {
 		userRouter.PATCH("user", userApi.UpdateSystemUserById)
 		// 删除系统用户
 		userRouter.DELETE("user/:id", userApi.DeleteSystemUserById)
+		// 获取系统用户角色列表
+		userRouter.GET("role/:id", userApi.GetAListOfUserRoles)
+		// 新增用户关联角色
+		userRouter.PATCH("role", userApi.NewUserAssociationRole)
 	}
 }

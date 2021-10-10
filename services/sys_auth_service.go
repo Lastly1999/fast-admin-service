@@ -14,8 +14,8 @@ type AuthService struct {
 type IAuthService interface {
 	CheckAuth(user *model.SysUser) (userRecord *model.SysUser, err error)
 	GenerateVerificode() (string, string, error)
-	GetSystemPermissionsMenu(roleId int) (menus []model.SysBaseMenu, err error)
-	GetSystemPermissionsMenuIds(roleId int) (sysBaseMenuIds []int, err error)
+	GetSystemPermissionsMenu(roleId string) (menus []model.SysBaseMenu, err error)
+	GetSystemPermissionsMenuIds(roleId string) (sysBaseMenuIds []int, err error)
 }
 
 // CheckAuth 用户授权验证 检验用户是否存在
@@ -41,7 +41,7 @@ func (authService *AuthService) GenerateVerificode() (string, string, error) {
 }
 
 // GetSystemPermissionsMenu 获取系统权限菜单
-func (authService *AuthService) GetSystemPermissionsMenu(roleId int) ([]model.SysBaseMenu, error) {
+func (authService *AuthService) GetSystemPermissionsMenu(roleId string) ([]model.SysBaseMenu, error) {
 	var sysRole model.SysRole
 	if err := global.GLOBAL_DB.Where("role_id = ?", roleId).Preload("BaseMenu").Find(&sysRole).Error; err != nil {
 		return nil, err
@@ -50,7 +50,7 @@ func (authService *AuthService) GetSystemPermissionsMenu(roleId int) ([]model.Sy
 }
 
 // GetSystemPermissionsMenuIds 获取用户权限id组
-func (authService *AuthService) GetSystemPermissionsMenuIds(roleId int) (sysBaseMenuIds []int, err error) {
+func (authService *AuthService) GetSystemPermissionsMenuIds(roleId string) (sysBaseMenuIds []int, err error) {
 	var sysRole model.SysRole
 	if err = global.GLOBAL_DB.Preload("BaseMenu").Where("role_id = ?", roleId).Find(&sysRole).Error; err != nil {
 		return nil, nil

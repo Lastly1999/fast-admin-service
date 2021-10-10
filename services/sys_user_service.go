@@ -12,8 +12,11 @@ type UserService struct {
 
 type IUserService interface {
 	GetUsers(pageInfo request.PageInfo) (user []*model.SysUser, total int64, err error)
-	CreateUser(user *model.SysUser) (err error)
+	CreateUser(user *model.SysUser) error
 	UpdateUserById(user *model.SysUser) error
+	DeleteUserById(userId int) error
+	GetSystemUserRoles(user *model.SysUser) (roles []*model.SysRole, err error)
+	NewUserAssociationRole(params *request.SystemUserRoleParams) (err error)
 }
 
 // GetUsers 获取系统用户
@@ -32,16 +35,21 @@ func (userService *UserService) GetUsers(pageInfo request.PageInfo) (users []*mo
 }
 
 // CreateUser 新增系统用户
-func (userService *UserService) CreateUser(user *model.SysUser) (err error) {
-	if err = global.GLOBAL_DB.Create(&user).Error; err != nil {
-		return err
+func (userService *UserService) CreateUser(user *model.SysUser) error {
+	result := global.GLOBAL_DB.Create(&user)
+	if result.RowsAffected == 0 || result.Error != nil {
+		return errors.New("创建失败")
+	}
+	err := result.Association("Role").Append(&model.SysRole{RoleId: user.RoleId})
+	if err != nil {
+		return errors.New("关联权限失败")
 	}
 	return nil
 }
 
 // UpdateUserById 修改系统用户信息
 func (userService *UserService) UpdateUserById(user *model.SysUser) error {
-	result := global.GLOBAL_DB.Model(&model.SysUser{}).Where("id = ? ", user.ID).Updates(&user)
+	result := global.GLOBAL_DB.Where("id = ? ", user.ID).Updates(&user)
 	if result.RowsAffected == 0 || result.Error != nil {
 		return errors.New("更新失败")
 	}
@@ -51,6 +59,35 @@ func (userService *UserService) UpdateUserById(user *model.SysUser) error {
 // DeleteUserById 删除系统用户
 func (userService *UserService) DeleteUserById(userId int) error {
 	if err := global.GLOBAL_DB.Where("id", userId).Delete(&model.SysUser{}).Error; err != nil {
+		return err
+	}
+	return nil
+}
+
+// GetSystemUserRoles 获取系统用户角色列表
+func (userService *UserService) GetSystemUserRoles(user *model.SysUser) (roles []*model.SysRole, err error) {
+	err = global.GLOBAL_DB.Model(&user).Association("Role").Find(&roles)
+	if err != nil {
+		return nil, err
+	}
+	return roles, nil
+}
+
+// NewUserAssociationRole 新增用户关联角色
+func (userService *UserService) NewUserAssociationRole(params *request.SystemUserRoleParams) (err error) {
+	var role []*model.SysRole
+	for _, v := range params.RoleIds {
+		role = append(role, &model.SysRole{
+			RoleId: v,
+		})
+	}
+	user := &model.SysUser{
+		Model: global.Model{
+			ID: params.UserId,
+		},
+	}
+	err = global.GLOBAL_DB.Model(&user).Association("Role").Replace(&role)
+	if err != nil {
 		return err
 	}
 	return nil

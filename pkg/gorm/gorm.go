@@ -8,6 +8,7 @@ import (
 	"go.uber.org/zap"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	"time"
 )
 
 func Setup() {
@@ -29,14 +30,23 @@ func Setup() {
 	}
 	global.GLOBAL_DB, err = gorm.Open(mysql.New(mysqlConfig), &gorm.Config{})
 	if err != nil {
-		zap.L().Error("database content error..")
+		zap.L().Error("The database connection failed may be due to a timeout")
 		return
 	}
-	zap.L().Info("database content success...")
+	sqlDB, err := global.GLOBAL_DB.DB()
+	// SetMaxIdleConns 设置空闲连接池中连接的最大数量
+	sqlDB.SetMaxIdleConns(10)
+	// SetMaxOpenConns 设置打开数据库连接的最大数量。
+	sqlDB.SetMaxOpenConns(100)
+	// SetConnMaxLifetime 设置了连接可复用的最大时间。
+	sqlDB.SetConnMaxLifetime(time.Hour)
+	// 数据库迁移
+	initDataBase()
+	zap.L().Info("Database connection is successful")
 }
 
-// InitDataBase 表迁移
-func InitDataBase() {
+// initDataBase 表迁移
+func initDataBase() {
 	var err error
 	err = global.GLOBAL_DB.AutoMigrate(
 		&model.SysUser{},

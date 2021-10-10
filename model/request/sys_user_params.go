@@ -13,4 +13,10 @@ type SystemUserParams struct {
 	PassWord   string `json:"passWord"`
 	UserAvatar string `json:"userAvatar"`
 	NikeName   string `json:"nikeName"`
+	RoleId     string `json:"roleId"`
+}
+
+type SystemUserRoleParams struct {
+	UserId  uint     `json:"userId"`
+	RoleIds []string `json:"roleIds"`
 }

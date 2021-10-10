@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"fmt"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"time"
@@ -13,14 +12,12 @@ type Claims struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
 	UserId   int    `json:"userId"`
-	RoleId   int    `json:"roleId"`
+	RoleId   string `json:"roleId"`
 	jwt.StandardClaims
 }
 
 // GenerateToken 派发token
-func GenerateToken(username, password string, userId, roleId int) (string, error) {
-	fmt.Println(userId)
-	fmt.Println(roleId)
+func GenerateToken(username, password, roleId string, userId int) (string, error) {
 	nowTime := time.Now()
 	expireTime := nowTime.Add(3 * time.Hour)
 	// 待加密的结构体

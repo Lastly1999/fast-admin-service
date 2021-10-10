@@ -119,7 +119,7 @@ func (roleApi *RoleApi) UpdateRoleBaseMenu(c *gin.Context) {
 		appRes.Response(http.StatusOK, enum.BIN_JSON_ERROR, nil)
 		return
 	}
-	err = roleService.UpdateRoleMenu(uint(info.RoleId), sysRoleMenuParams.PermissionId)
+	err = roleService.UpdateRoleMenu(info.RoleId, sysRoleMenuParams.PermissionId)
 	if err != nil {
 		return
 	}

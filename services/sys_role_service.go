@@ -13,7 +13,7 @@ type IRoleService interface {
 	DeleteRoleById(id int) (err error)
 	PutRole(role *model.SysRole) (err error)
 	UpdateRole(role *model.SysRole) (err error)
-	UpdateRoleMenu(roleId int, menuIds []uint) (err error)
+	UpdateRoleMenu(roleId string, menuIds []uint) error
 }
 
 // DeleteRoleById 删除角色
@@ -49,7 +49,7 @@ func (roleService *RoleService) UpdateRole(role *model.SysRole) (err error) {
 }
 
 // UpdateRoleMenu 更新角色菜单
-func (roleService *RoleService) UpdateRoleMenu(roleId uint, menuIds []uint) error {
+func (roleService *RoleService) UpdateRoleMenu(roleId string, menuIds []uint) error {
 	var sysBaseMenuIds []*model.SysBaseMenu
 	for _, v := range menuIds {
 		sysBaseMenuIds = append(sysBaseMenuIds, &model.SysBaseMenu{Model: global.Model{ID: v}})

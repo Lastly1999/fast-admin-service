@@ -11,7 +11,6 @@ import (
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"strconv"
 )
 
 type AuthApi struct {
@@ -55,12 +54,12 @@ func (authApi *AuthApi) LoginAction(c *gin.Context) {
 			appRes.Response(http.StatusOK, enum.AUTH_ERROR, nil)
 			return
 		}
-		if len(auth.Role) == 0 {
+		if auth.RoleId == "" {
 			appRes.Response(http.StatusOK, enum.AUTHORITY_ERROR, nil)
 			return
 		}
 		// 成功 派发token 用户的权限 默认选择第一个作为默认角色
-		token, err := utils.GenerateToken(auth.UserName, auth.PassWord, int(auth.ID), int(auth.Role[0].RoleId))
+		token, err := utils.GenerateToken(auth.UserName, auth.PassWord, auth.RoleId, int(auth.ID))
 		if err != nil {
 			appRes.Response(http.StatusOK, enum.ERROR_AUTH, "token派发错误")
 			return
@@ -122,13 +121,7 @@ func (authApi *AuthApi) GetBaseMenusIds(c *gin.Context) {
 	appRes := app.Gin{C: c}
 	// 解析token内的用户参数
 	id := c.Param("id")
-	// 参数转换
-	uid, err := strconv.Atoi(id)
-	if err != nil {
-		appRes.Response(http.StatusOK, enum.PARAMS_ERROR, nil)
-		return
-	}
-	ids, err := authService.GetSystemPermissionsMenuIds(uid)
+	ids, err := authService.GetSystemPermissionsMenuIds(id)
 	if err != nil {
 		appRes.Response(http.StatusOK, enum.INVALID_TOKEN_PARAMS_ERROR, nil)
 		return
