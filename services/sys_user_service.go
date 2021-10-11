@@ -40,7 +40,8 @@ func (userService *UserService) CreateUser(user *model.SysUser) error {
 	if result.RowsAffected == 0 || result.Error != nil {
 		return errors.New("创建失败")
 	}
-	err := result.Association("Role").Append(&model.SysRole{RoleId: user.RoleId})
+	// 关联权限
+	err := result.Association("Role").Append(&user.Role)
 	if err != nil {
 		return errors.New("关联权限失败")
 	}
@@ -52,6 +53,11 @@ func (userService *UserService) UpdateUserById(user *model.SysUser) error {
 	result := global.GLOBAL_DB.Where("id = ? ", user.ID).Updates(&user)
 	if result.RowsAffected == 0 || result.Error != nil {
 		return errors.New("更新失败")
+	}
+	// 重新关联权限
+	err := global.GLOBAL_DB.Model(&model.SysUser{Model: global.Model{ID: user.ID}}).Association("Role").Replace(&user.Role)
+	if err != nil {
+		return errors.New("关联权限失败")
 	}
 	return nil
 }

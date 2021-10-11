@@ -54,6 +54,11 @@ func (userApi *UserApi) CreateSystemUser(c *gin.Context) {
 		NikeName: sysUserParams.NikeName,
 		RoleId:   sysUserParams.RoleId,
 	}
+	for _, v := range sysUserParams.RoleIds {
+		user.Role = append(user.Role, model.SysRole{
+			RoleId: v,
+		})
+	}
 	err = userService.CreateUser(user)
 	if err != nil {
 		appRes.Response(http.StatusOK, enum.ERROR, nil)
@@ -83,6 +88,11 @@ func (userApi *UserApi) UpdateSystemUserById(c *gin.Context) {
 		PassWord: sysUserParams.PassWord,
 		NikeName: sysUserParams.NikeName,
 		RoleId:   sysUserParams.RoleId,
+	}
+	for _, v := range sysUserParams.RoleIds {
+		user.Role = append(user.Role, model.SysRole{
+			RoleId: v,
+		})
 	}
 	err = userService.UpdateUserById(user)
 	if err != nil {
