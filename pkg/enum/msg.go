@@ -1,8 +1,8 @@
 package enum
 
 var MsgFlags = map[int]string{
-	SUCCESS:         "操作成功",
-	ERROR:           "业务处理异常",
+	SUCCESS:         "ok",
+	ERROR:           "fail",
 	INVALID_PARAMS:  "JWT authentication error, please login again",
 	AUTH_ERROR:      "登录失败，请检查参数是否正确",
 	CODE_ERROR:      "图形验证码错误，请重新登录",

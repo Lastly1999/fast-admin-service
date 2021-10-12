@@ -16,6 +16,7 @@ type IAuthService interface {
 	GenerateVerificode() (string, string, error)
 	GetSystemPermissionsMenu(roleId string) (menus []model.SysBaseMenu, err error)
 	GetSystemPermissionsMenuIds(roleId string) (sysBaseMenuIds []int, err error)
+	GetSystemUserInfoById(userId int) (user *model.SysUser, err error)
 }
 
 // CheckAuth 用户授权验证 检验用户是否存在
@@ -59,4 +60,12 @@ func (authService *AuthService) GetSystemPermissionsMenuIds(roleId string) (sysB
 		sysBaseMenuIds = append(sysBaseMenuIds, int(v.ID))
 	}
 	return sysBaseMenuIds, nil
+}
+
+// GetSystemUserInfoById 获取系统用户信息
+func (authService *AuthService) GetSystemUserInfoById(userId int) (user *model.SysUser, err error) {
+	if err = global.GLOBAL_DB.Model(&model.SysUser{}).Preload("Role").Where("id = ?", userId).First(&user).Error; err != nil {
+		return user, err
+	}
+	return user, nil
 }

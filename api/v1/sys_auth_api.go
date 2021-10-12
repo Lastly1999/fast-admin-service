@@ -73,6 +73,30 @@ func (authApi *AuthApi) LoginAction(c *gin.Context) {
 	}
 }
 
+// GetUserInfoById
+// @Tags Auth
+// @Summary 获取系统用户信息
+// @Produce  application/json
+// @Param data body request.Login true "用户名, 密码, 验证码"
+// @Success 200 {string} string "{"success":true,"data":{},"msg":"ok"}"
+// @Router /auth/user [get]
+func (authApi *AuthApi) GetUserInfoById(c *gin.Context) {
+	appRes := app.Gin{C: c}
+	info, err := utils.ParseTokenRequest(c)
+	if err != nil {
+		appRes.Response(http.StatusOK, enum.INVALID_TOKEN_PARAMS_ERROR, nil)
+		return
+	}
+	userInfo, err := authService.GetSystemUserInfoById(info.UserId)
+	if err != nil {
+		appRes.Response(http.StatusOK, enum.ERROR, nil)
+		return
+	}
+	appRes.Response(http.StatusOK, enum.SUCCESS, gin.H{
+		"userInfo": userInfo,
+	})
+}
+
 // GetAuthCode
 // @Tags Auth
 // @Summary 获取图片验证码
@@ -129,4 +153,25 @@ func (authApi *AuthApi) GetBaseMenusIds(c *gin.Context) {
 	appRes.Response(http.StatusOK, enum.SUCCESS, gin.H{
 		"roleIds": ids,
 	})
+}
+
+// UpdateUserRole
+// @Tags Auth
+// @Summary 更新用户默认角色
+// @Success 200 {string} string "{"success":true,"data":{},"msg":"ok"}"
+// @Router /auth/role/:id [patch]
+func (authApi *AuthApi) UpdateUserRole(c *gin.Context) {
+	appRes := app.Gin{C: c}
+	sysRoleDefaultParams := request.SysRoleDefaultParams{}
+	err := c.ShouldBindJSON(&sysRoleDefaultParams)
+	if err != nil {
+		appRes.Response(http.StatusOK, enum.BIN_JSON_ERROR, nil)
+		return
+	}
+	err = userService.UpdateUserRole(&sysRoleDefaultParams)
+	if err != nil {
+		appRes.Response(http.StatusOK, enum.ERROR, nil)
+		return
+	}
+	appRes.Response(http.StatusOK, enum.SUCCESS, nil)
 }

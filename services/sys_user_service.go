@@ -98,3 +98,11 @@ func (userService *UserService) NewUserAssociationRole(params *request.SystemUse
 	}
 	return nil
 }
+
+// UpdateUserRole 更新用户默认角色
+func (userService *UserService) UpdateUserRole(params *request.SysRoleDefaultParams) (err error) {
+	if err = global.GLOBAL_DB.Model(&model.SysUser{}).Where("id = ?", params.UserId).Update("role_id", params.RoleId).Error; err != nil {
+		return err
+	}
+	return nil
+}

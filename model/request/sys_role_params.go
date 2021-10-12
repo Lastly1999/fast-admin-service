@@ -8,5 +8,11 @@ type SysRoleParams struct {
 }
 
 type SysRoleMenuParams struct {
+	RoeId        string `json:"roleId"`
 	PermissionId []uint `json:"permissionId"`
+}
+
+type SysRoleDefaultParams struct {
+	RoleId string `json:"roleId"`
+	UserId int    `json:"userId"`
 }

@@ -5,7 +5,6 @@ import (
 	"fast-admin-service/model/request"
 	"fast-admin-service/pkg/app"
 	"fast-admin-service/pkg/enum"
-	"fast-admin-service/pkg/utils"
 	"fast-admin-service/services"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -111,16 +110,15 @@ func (roleApi *RoleApi) UpdateRoleById(c *gin.Context) {
 // @Router /role/menu [patch]
 func (roleApi *RoleApi) UpdateRoleBaseMenu(c *gin.Context) {
 	appRes := app.Gin{C: c}
-	// 解析token内的用户参数
-	info, err := utils.ParseTokenRequest(c)
 	// 解析请求结构体
 	sysRoleMenuParams := request.SysRoleMenuParams{}
 	if err := c.ShouldBindJSON(&sysRoleMenuParams); err != nil {
 		appRes.Response(http.StatusOK, enum.BIN_JSON_ERROR, nil)
 		return
 	}
-	err = roleService.UpdateRoleMenu(info.RoleId, sysRoleMenuParams.PermissionId)
+	err := roleService.UpdateRoleMenu(sysRoleMenuParams.RoeId, sysRoleMenuParams.PermissionId)
 	if err != nil {
+		appRes.Response(http.StatusOK, enum.ERROR, nil)
 		return
 	}
 	appRes.Response(http.StatusOK, enum.SUCCESS, nil)
