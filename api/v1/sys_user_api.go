@@ -6,6 +6,7 @@ import (
 	"fast-admin-service/model/request"
 	"fast-admin-service/pkg/app"
 	"fast-admin-service/pkg/enum"
+	"fast-admin-service/pkg/utils"
 	"fast-admin-service/services"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -50,7 +51,7 @@ func (userApi *UserApi) CreateSystemUser(c *gin.Context) {
 	}
 	user := &model.SysUser{
 		UserName: sysUserParams.UserName,
-		PassWord: sysUserParams.PassWord,
+		PassWord: utils.EncryptSh256(sysUserParams.PassWord),
 		NikeName: sysUserParams.NikeName,
 		RoleId:   sysUserParams.RoleId,
 	}

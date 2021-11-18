@@ -56,7 +56,7 @@ func (roleApi *RoleApi) DeleteRoleById(c *gin.Context) {
 // @Tags Role
 // @Summary 新增角色
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"ok"}"
-// @Router /role/role [get]
+// @Router /role/role [put]
 func (roleApi *RoleApi) PutRole(c *gin.Context) {
 	appRes := app.Gin{C: c}
 	roleParams := request.SysRoleParams{}
@@ -67,6 +67,7 @@ func (roleApi *RoleApi) PutRole(c *gin.Context) {
 	}
 	role := &model.SysRole{
 		RoleName: roleParams.RoleName,
+		Describe: roleParams.Describe,
 	}
 	err = roleService.PutRole(role)
 	if err != nil {
@@ -84,16 +85,16 @@ func (roleApi *RoleApi) PutRole(c *gin.Context) {
 func (roleApi *RoleApi) UpdateRoleById(c *gin.Context) {
 	appRes := app.Gin{C: c}
 	// 请求的结构体
-	roleParams := request.SysRoleParams{}
-	err := c.ShouldBindJSON(&roleParams)
+	rolePutParams := request.SysPutRoleParams{}
+	err := c.ShouldBindJSON(&rolePutParams)
 	if err != nil {
 		appRes.Response(http.StatusOK, enum.BIN_JSON_ERROR, nil)
 		return
 	}
 	role := &model.SysRole{
-		RoleId:   roleParams.RoleId,
-		RoleName: roleParams.RoleName,
-		Describe: roleParams.Describe,
+		RoleId:   rolePutParams.RoleId,
+		RoleName: rolePutParams.RoleName,
+		Describe: rolePutParams.Describe,
 	}
 	err = roleService.UpdateRole(role)
 	if err != nil {
@@ -116,7 +117,7 @@ func (roleApi *RoleApi) UpdateRoleBaseMenu(c *gin.Context) {
 		appRes.Response(http.StatusOK, enum.BIN_JSON_ERROR, nil)
 		return
 	}
-	err := roleService.UpdateRoleMenu(sysRoleMenuParams.RoeId, sysRoleMenuParams.PermissionId)
+	err := roleService.UpdateRoleMenu(sysRoleMenuParams.RoleId, sysRoleMenuParams.PermissionId)
 	if err != nil {
 		appRes.Response(http.StatusOK, enum.ERROR, nil)
 		return

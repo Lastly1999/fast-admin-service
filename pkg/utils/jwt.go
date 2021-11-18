@@ -11,13 +11,13 @@ const SECRET = "taoshihan"
 type Claims struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
-	UserId   int    `json:"userId"`
-	RoleId   string `json:"roleId"`
+	UserId   uint   `json:"userId"`
+	RoleId   uint   `json:"roleId"`
 	jwt.StandardClaims
 }
 
 // GenerateToken 派发token
-func GenerateToken(username, password, roleId string, userId int) (string, error) {
+func GenerateToken(username, password string, roleId uint, userId uint) (string, error) {
 	nowTime := time.Now()
 	expireTime := nowTime.Add(3 * time.Hour)
 	// 待加密的结构体

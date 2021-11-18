@@ -6,7 +6,7 @@ import (
 )
 
 type SysRole struct {
-	RoleId    string         `json:"roleId" gorm:"column:role_id;primary_key;comment:权限id"`
+	RoleId    uint           `json:"roleId" gorm:"column:role_id;primary_key;comment:权限id"`
 	RoleName  string         `json:"roleName" gorm:"column:role_name;comment:角色名称"`
 	Describe  string         `json:"describe" gorm:"column:describe;comment:角色别名"`
 	Status    *bool          `json:"status" gorm:"column:status;default:1;comment:状态"`

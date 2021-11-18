@@ -11,6 +11,7 @@ import (
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"strconv"
 )
 
 type AuthApi struct {
@@ -44,7 +45,7 @@ func (authApi *AuthApi) LoginAction(c *gin.Context) {
 	}
 	userReqBody := &model.SysUser{
 		UserName: loginParam.UserName,
-		PassWord: loginParam.PassWord,
+		PassWord: utils.EncryptSh256(loginParam.PassWord),
 	}
 	// 验证图形验证码
 	res := captcha.Verify(loginParam.CodeAuth, loginParam.Code)
@@ -54,12 +55,12 @@ func (authApi *AuthApi) LoginAction(c *gin.Context) {
 			appRes.Response(http.StatusOK, enum.AUTH_ERROR, nil)
 			return
 		}
-		if auth.RoleId == "" {
+		if auth.RoleId == 0 {
 			appRes.Response(http.StatusOK, enum.AUTHORITY_ERROR, nil)
 			return
 		}
 		// 成功 派发token 用户的权限 默认选择第一个作为默认角色
-		token, err := utils.GenerateToken(auth.UserName, auth.PassWord, auth.RoleId, int(auth.ID))
+		token, err := utils.GenerateToken(auth.UserName, auth.PassWord, auth.RoleId, uint(int(auth.ID)))
 		if err != nil {
 			appRes.Response(http.StatusOK, enum.ERROR_AUTH, "token派发错误")
 			return
@@ -87,7 +88,7 @@ func (authApi *AuthApi) GetUserInfoById(c *gin.Context) {
 		appRes.Response(http.StatusOK, enum.INVALID_TOKEN_PARAMS_ERROR, nil)
 		return
 	}
-	userInfo, err := authService.GetSystemUserInfoById(info.UserId)
+	userInfo, err := authService.GetSystemUserInfoById(int(info.UserId))
 	if err != nil {
 		appRes.Response(http.StatusOK, enum.ERROR, nil)
 		return
@@ -106,7 +107,7 @@ func (authApi *AuthApi) GetAuthCode(c *gin.Context) {
 	appRes := app.Gin{C: c}
 	code, base, err := authService.GenerateVerificode()
 	if err != nil {
-		appRes.Response(http.StatusBadGateway, enum.ERROR, err.Error())
+		appRes.Response(http.StatusBadGateway, enum.ERROR, "Fail:获取参数失败")
 		return
 	}
 	appRes.Response(http.StatusOK, enum.SUCCESS, gin.H{
@@ -127,7 +128,7 @@ func (authApi *AuthApi) GetBaseMenus(c *gin.Context) {
 		appRes.Response(http.StatusOK, enum.INVALID_TOKEN_PARAMS_ERROR, nil)
 		return
 	}
-	menus, err := authService.GetSystemPermissionsMenu(info.RoleId)
+	menus, err := authService.GetSystemPermissionsMenu(strconv.Itoa(int(info.RoleId)))
 	if err != nil {
 		return
 	}

@@ -29,6 +29,7 @@ func Setup() {
 		SkipInitializeWithVersion: false, // 根据版本自动配置
 	}
 	global.GLOBAL_DB, err = gorm.Open(mysql.New(mysqlConfig), &gorm.Config{})
+	global.GLOBAL_DB.Logger.LogMode(4)
 	if err != nil {
 		zap.L().Error("The database connection failed may be due to a timeout")
 		return

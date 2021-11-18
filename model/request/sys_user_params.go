@@ -8,16 +8,16 @@ type Login struct {
 }
 
 type SystemUserParams struct {
-	Id         uint     `json:"id"`
-	UserName   string   `json:"userName"`
-	PassWord   string   `json:"passWord"`
-	UserAvatar string   `json:"userAvatar"`
-	NikeName   string   `json:"nikeName"`
-	RoleId     string   `json:"roleId"`
-	RoleIds    []string `json:"roleIds"`
+	Id         uint   `json:"id"`
+	UserName   string `json:"userName"`
+	PassWord   string `json:"passWord"`
+	UserAvatar string `json:"userAvatar"`
+	NikeName   string `json:"nikeName"`
+	RoleId     uint   `json:"roleId"`
+	RoleIds    []uint `json:"roleIds"`
 }
 
 type SystemUserRoleParams struct {
-	UserId  uint     `json:"id" binding:"required"`
-	RoleIds []string `json:"roleIds" binding:"required"`
+	UserId  uint   `json:"id" binding:"required"`
+	RoleIds []uint `json:"roleIds" binding:"required"`
 }

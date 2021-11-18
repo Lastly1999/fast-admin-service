@@ -1,14 +1,18 @@
 package request
 
 type SysRoleParams struct {
-	RoleId   string `json:"roleId"`
 	RoleName string `json:"roleName"`
-	Status   *bool  `json:"status"`
+	Describe string `json:"describe"`
+}
+
+type SysPutRoleParams struct {
+	RoleId   uint   `json:"roleId" binding:"required"`
+	RoleName string `json:"roleName"`
 	Describe string `json:"describe"`
 }
 
 type SysRoleMenuParams struct {
-	RoeId        string `json:"roleId"`
+	RoleId       uint   `json:"roleId"`
 	PermissionId []uint `json:"permissionId"`
 }
 

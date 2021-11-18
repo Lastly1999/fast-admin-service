@@ -735,3 +735,79 @@
 2021-10-12T11:16:24.713+0800	INFO	gorm/gorm.go:45	Database connection is successful
 2021-10-12T15:58:27.627+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
 2021-10-12T15:58:30.891+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-13T22:39:52.860+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-13T22:39:55.236+0800	ERROR	gorm/gorm.go:33	The database connection failed may be due to a timeout
+2021-10-13T22:40:22.141+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-13T22:40:22.490+0800	ERROR	gorm/gorm.go:33	The database connection failed may be due to a timeout
+2021-10-13T22:40:35.033+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-13T22:40:38.114+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-16T00:34:31.396+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-16T00:34:31.591+0800	ERROR	gorm/gorm.go:33	The database connection failed may be due to a timeout
+2021-10-16T00:34:43.682+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-16T00:34:45.339+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-17T14:54:14.195+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-17T14:54:15.826+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-17T14:56:37.546+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-17T14:56:39.173+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-17T14:57:07.171+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-17T14:57:08.712+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-10-20T23:43:15.286+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-10-20T23:43:17.051+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-11-16T23:57:13.717+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-16T23:57:18.058+0800	ERROR	gorm/gorm.go:33	The database connection failed may be due to a timeout
+2021-11-16T23:58:57.016+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-16T23:58:59.346+0800	ERROR	gorm/gorm.go:33	The database connection failed may be due to a timeout
+2021-11-16T23:59:24.644+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-16T23:59:28.366+0800	INFO	gorm/gorm.go:45	Database connection is successful
+2021-11-17T00:06:56.687+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-17T00:07:01.961+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-17T00:08:25.799+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-17T00:08:31.033+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-17T23:17:27.142+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-17T23:17:32.214+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-17T23:40:10.071+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-17T23:40:15.250+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-17T23:44:56.833+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-17T23:45:02.578+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-18T21:33:01.032+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T21:33:06.146+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-18T21:33:37.296+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T21:33:42.328+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-18T21:51:54.046+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T21:51:56.292+0800	ERROR	gorm/gorm.go:34	The database connection failed may be due to a timeout
+2021-11-18T22:02:32.310+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T22:02:32.495+0800	ERROR	gorm/gorm.go:34	The database connection failed may be due to a timeout
+2021-11-18T22:04:14.307+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T22:04:15.203+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-18T22:08:29.839+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T22:08:31.293+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-18T22:10:35.902+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T22:10:37.520+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-18T22:11:13.617+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T22:11:15.487+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-18T22:43:22.643+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T22:43:24.266+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-18T22:59:24.364+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T22:59:25.979+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-18T23:02:39.944+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T23:02:41.829+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-18T23:10:45.458+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T23:10:47.027+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-18T23:17:44.083+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T23:17:44.658+0800	ERROR	gorm/gorm.go:59	automiGrate error...
+2021-11-18T23:17:44.658+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-18T23:26:15.184+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T23:26:15.756+0800	ERROR	gorm/gorm.go:59	automiGrate error...
+2021-11-18T23:26:15.756+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-18T23:26:43.180+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T23:26:43.898+0800	ERROR	gorm/gorm.go:59	automiGrate error...
+2021-11-18T23:26:43.898+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-18T23:29:58.443+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T23:29:59.008+0800	ERROR	gorm/gorm.go:59	automiGrate error...
+2021-11-18T23:29:59.008+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-18T23:31:11.830+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T23:31:13.148+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-18T23:35:00.698+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-18T23:35:02.267+0800	INFO	gorm/gorm.go:46	Database connection is successful
+2021-11-19T00:17:08.647+0800	INFO	setting/setting.go:61	setting.Setup, success to parse 'config/app.ini'
+2021-11-19T00:17:10.273+0800	INFO	gorm/gorm.go:46	Database connection is successful
