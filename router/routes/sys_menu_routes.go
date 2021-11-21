@@ -15,5 +15,9 @@ func InitBaseMenuRouter(r *gin.RouterGroup) {
 		baseMenuRouter.PUT("/menu", baseMenuApi.PutBaseMenu)
 		// 删除系统菜单
 		baseMenuRouter.DELETE("/menu/:id", baseMenuApi.DeleteBaseMenu)
+		// 编辑系统菜单
+		baseMenuRouter.PATCH("/menu", baseMenuApi.UpdateBaseMenu)
+		// 查询系统菜单详情
+		baseMenuRouter.GET("/menu/:id", baseMenuApi.GetBaseMenuInfo)
 	}
 }
