@@ -8,7 +8,7 @@ import (
 
 var (
 	GLOBAL_DB *gorm.DB
-	ZAP_LOG   = zap.S()
+	ZAP_LOG   *zap.Logger
 )
 
 type Model struct {

@@ -20,8 +20,8 @@ func Setup() {
 	})
 	_, err := Rdb.Ping().Result()
 	if err != nil {
-		global.ZAP_LOG.Infof(err.Error())
+		global.ZAP_LOG.Info(err.Error())
 		return
 	}
-	global.ZAP_LOG.Infof("go-redis content succcess...")
+	global.ZAP_LOG.Info("go-redis content succcess...")
 }

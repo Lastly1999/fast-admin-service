@@ -5,6 +5,8 @@ import (
 	"fast-admin-service/middleware/jwt"
 	"fast-admin-service/router/routes"
 	"github.com/gin-gonic/gin"
+	"io"
+	"os"
 )
 
 func InitRouter() (app *gin.Engine) {
@@ -12,6 +14,9 @@ func InitRouter() (app *gin.Engine) {
 	app = gin.Default()
 	api := app.Group("v1")
 	authApi := v1.AuthApi{}
+	// 记录到文件。
+	f, _ := os.Create("./log/gin-example.log")
+	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
 	// 授权登录
 	api.POST("/auth/login", authApi.LoginAction)
 	// 获取图形验证码
