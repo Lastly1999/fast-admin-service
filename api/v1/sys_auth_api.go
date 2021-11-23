@@ -8,7 +8,6 @@ import (
 	"fast-admin-service/pkg/enum"
 	"fast-admin-service/pkg/utils"
 	"fast-admin-service/services"
-	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
@@ -28,19 +27,11 @@ var authService services.AuthService
 // @Router /auth/login [post]
 func (authApi *AuthApi) LoginAction(c *gin.Context) {
 	appRes := app.Gin{C: c}
-	loginParam := request.Login{}
-	valid := validation.Validation{}
-	err := c.ShouldBind(&loginParam)
+	loginParam := &request.Login{}
+	err := c.ShouldBindJSON(loginParam)
 	// 绑定json错误
 	if err != nil {
-		appRes.Response(http.StatusOK, enum.ERROR, "绑定json失败，结构体参数绑定失败")
-		return
-	}
-	// 字段验证
-	ok, err := valid.Valid(&loginParam)
-	// 字段验证错误
-	if !ok {
-		appRes.Response(http.StatusOK, enum.ERROR, "参数解析异常")
+		appRes.Response(http.StatusOK, enum.BIN_JSON_ERROR, nil)
 		return
 	}
 	userReqBody := &model.SysUser{

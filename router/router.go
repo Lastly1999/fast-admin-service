@@ -3,6 +3,7 @@ package router
 import (
 	v1 "fast-admin-service/api/v1"
 	"fast-admin-service/middleware/jwt"
+	"fast-admin-service/middleware/req"
 	"fast-admin-service/router/routes"
 	"github.com/gin-gonic/gin"
 	"io"
@@ -17,6 +18,7 @@ func InitRouter() (app *gin.Engine) {
 	// 记录到文件。
 	f, _ := os.Create("./log/gin-example.log")
 	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
+	api.Use(req.RequestParams())
 	// 授权登录
 	api.POST("/auth/login", authApi.LoginAction)
 	// 获取图形验证码

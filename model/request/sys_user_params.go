@@ -1,10 +1,10 @@
 package request
 
 type Login struct {
-	UserName string `json:"userName"`
-	PassWord string `json:"passWord"`
-	CodeAuth string `json:"codeAuth"`
-	Code     string `json:"code"`
+	UserName string `json:"userName" binding:"required"`
+	PassWord string `json:"passWord" binding:"required"`
+	CodeAuth string `json:"codeAuth" binding:"required"`
+	Code     string `json:"code" binding:"required"`
 }
 
 type SystemUserParams struct {
