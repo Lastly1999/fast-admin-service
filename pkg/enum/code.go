@@ -6,6 +6,7 @@ const (
 	ERROR                      = 500
 	BIN_JSON_ERROR             = 503
 	PARAMS_ERROR               = 502
+	AUTH_FAIL                  = 401
 	AUTH_ERROR                 = 301
 	CODE_ERROR                 = 302
 	INVALID_TOKEN_PARAMS_ERROR = 303
