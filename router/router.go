@@ -2,8 +2,10 @@ package router
 
 import (
 	v1 "fast-admin-service/api/v1"
+	"fast-admin-service/middleware/enforce"
 	"fast-admin-service/middleware/jwt"
 	"fast-admin-service/middleware/req"
+	"fast-admin-service/pkg/adapter"
 	"fast-admin-service/router/routes"
 	"github.com/gin-gonic/gin"
 	"io"
@@ -23,7 +25,8 @@ func InitRouter() (app *gin.Engine) {
 	api.POST("/auth/login", authApi.LoginAction)
 	// 获取图形验证码
 	api.GET("/auth/code", authApi.GetAuthCode)
-	api.Use(jwt.JWT()) // jwt 中间件
+	api.Use(jwt.JWT())                                     // jwt 中间件
+	api.Use(enforce.ApiCheckRule(adapter.EnforcerTools())) // Casbin api鉴权
 	{
 		// 授权模块
 		routes.InitAuthRouter(api)
@@ -35,6 +38,8 @@ func InitRouter() (app *gin.Engine) {
 		routes.InitSystemRouter(api)
 		// 系统菜单模块
 		routes.InitBaseMenuRouter(api)
+		// Casbin policys模块
+		routes.InitCasbinRoutes(api)
 	}
 	return app
 }
