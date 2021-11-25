@@ -44,7 +44,7 @@ func Setup() {
 	// 数据库迁移
 	initDataBase()
 	// 图标数据创建
-	InitSystemIcons()
+	//InitSystemIcons()
 	global.ZAP_LOG.Info("The database connection pool is initialized successfully")
 }
 
