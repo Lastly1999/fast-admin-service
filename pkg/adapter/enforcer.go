@@ -2,6 +2,7 @@ package adapter
 
 import (
 	"fast-admin-service/global"
+	"fast-admin-service/utils"
 	"github.com/casbin/casbin/v2"
 	gormadapter "github.com/casbin/gorm-adapter/v3"
 )
@@ -15,6 +16,8 @@ func EnforcerTools() *casbin.Enforcer {
 		return nil
 	}
 	global.GLOBAL_Enforcer, err = casbin.NewEnforcer("config/casbin.conf", adapter)
+	global.GLOBAL_Enforcer.AddFunction("ParamsMatch", utils.RegexMatchFunc)
+	global.GLOBAL_Enforcer.AddFunction("regexMatch", utils.RegexMatchFunc)
 	//global.GLOBAL_Enforcer = enforcer
 	if err != nil {
 		global.ZAP_LOG.Error(err.Error())
