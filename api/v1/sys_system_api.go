@@ -11,6 +11,10 @@ import (
 type SystemApi struct {
 }
 
+type ISystemApi interface {
+	GetAListOfSystemIcons(c *gin.Context)
+}
+
 var sysSystemService services.SysSystemService
 
 // GetAListOfSystemIcons

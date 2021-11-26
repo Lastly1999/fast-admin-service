@@ -9,9 +9,9 @@ import (
 // SetLogs 设置日志级别、输出格式和日志文件的路径
 func SetLogs(logLevel zapcore.Level, logFormat, fileName string) {
 	encoderConfig := zapcore.EncoderConfig{
-		TimeKey:        TIME_KEY,
-		LevelKey:       LEVLE_KEY,
-		NameKey:        NAME_KEY,
+		TimeKey:  TIME_KEY,
+		LevelKey: LEVLE_KEY,
+		//NameKey:        NAME_KEY,
 		CallerKey:      CALLER_KEY,
 		MessageKey:     MESSAGE_KEY,
 		StacktraceKey:  STACKTRACE_KEY,
@@ -59,10 +59,10 @@ func SetLogs(logLevel zapcore.Level, logFormat, fileName string) {
 		Level:       atom, // 日志级别
 		Development: true, // 开发模式，堆栈跟踪
 		//Encoding:         "json",                                              // 输出格式 console 或 json
-		Encoding:         "console",                                            // 输出格式 console 或 json
-		EncoderConfig:    encoderConfig,                                        // 编码器配置
-		InitialFields:    map[string]interface{}{"serviceName": "wisdom_park"}, // 初始化字段，如：添加一个服务器名称
-		OutputPaths:      []string{"stdout"},                                   // 输出到指定文件 stdout（标准输出，正常颜色） stderr（错误输出，红色）
+		Encoding:         "console",                                                   // 输出格式 console 或 json
+		EncoderConfig:    encoderConfig,                                               // 编码器配置
+		InitialFields:    map[string]interface{}{"serviceName": "fast-admin-service"}, // 初始化字段，如：添加一个服务器名称
+		OutputPaths:      []string{fileName, "stdout"},                                // 输出到指定文件 stdout（标准输出，正常颜色） stderr（错误输出，红色）
 		ErrorOutputPaths: []string{"stderr"},
 	}
 	global.ZAP_LOG, _ = config.Build()

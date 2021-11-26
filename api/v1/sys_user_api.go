@@ -16,6 +16,15 @@ import (
 type UserApi struct {
 }
 
+type IUserApi interface {
+	GetSystemUsers(c *gin.Context)
+	CreateSystemUser(c *gin.Context)
+	UpdateSystemUserById(c *gin.Context)
+	DeleteSystemUserById(c *gin.Context)
+	GetAListOfUserRoles(c *gin.Context)
+	NewUserAssociationRole(c *gin.Context)
+}
+
 var userService services.UserService
 
 // GetSystemUsers

@@ -16,6 +16,15 @@ import (
 type AuthApi struct {
 }
 
+type IAuthApi interface {
+	LoginAction(c *gin.Context)
+	GetUserInfoById(c *gin.Context)
+	GetAuthCode(c *gin.Context)
+	GetBaseMenus(c *gin.Context)
+	GetBaseMenusIds(c *gin.Context)
+	UpdateUserRole(c *gin.Context)
+}
+
 var authService services.AuthService
 
 // LoginAction
