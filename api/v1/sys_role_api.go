@@ -14,6 +14,14 @@ import (
 type RoleApi struct {
 }
 
+type IRoleApi interface {
+	GetRoles(c *gin.Context)
+	DeleteRoleById(c *gin.Context)
+	PutRole(c *gin.Context)
+	UpdateRoleById(c *gin.Context)
+	UpdateRoleBaseMenu(c *gin.Context)
+}
+
 var roleService services.RoleService
 
 // GetRoles

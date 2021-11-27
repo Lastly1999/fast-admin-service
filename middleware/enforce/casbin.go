@@ -15,7 +15,6 @@ func ApiCheckRule(e *casbin.Enforcer) gin.HandlerFunc {
 	return func(context *gin.Context) {
 		// 获取api路径
 		obj := context.Request.URL.RequestURI()
-		fmt.Println(context.Request.URL.Path)
 		// 获取api请求方法
 		act := context.Request.Method
 		token := context.GetHeader("Authorization")
@@ -33,7 +32,8 @@ func ApiCheckRule(e *casbin.Enforcer) gin.HandlerFunc {
 		// 判断策略中是否存在放行
 		enforce, _ := e.Enforce(sub, obj, act)
 		if enforce {
-			global.ZAP_LOG.Info("权限认证通过成功")
+			successMsg := fmt.Sprintf("RequestURL：%s msg：api鉴权通过，身份认证成功", obj)
+			global.ZAP_LOG.Info(successMsg)
 			context.Next()
 		} else {
 			global.ZAP_LOG.Info("权限认证失败，您没有此api权限")

@@ -11,6 +11,10 @@ import (
 type SysCasbinApi struct {
 }
 
+type ISysCasbinApi interface {
+	GetPolicys(c *gin.Context)
+}
+
 var casbinService services.SysCasbinRuleService
 
 func (sysCasbinApi *SysCasbinApi) GetPolicys(c *gin.Context) {

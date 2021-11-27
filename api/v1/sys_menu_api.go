@@ -15,6 +15,14 @@ import (
 type BaseMenuApi struct {
 }
 
+type IBaseMenuApi interface {
+	PutBaseMenu(c *gin.Context)
+	DeleteBaseMenu(c *gin.Context)
+	GetBaseMenu(c *gin.Context)
+	UpdateBaseMenu(c *gin.Context)
+	GetBaseMenuInfo(c *gin.Context)
+}
+
 var baseMenuService services.BaseMenuService
 
 // PutBaseMenu
